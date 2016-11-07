@@ -178,13 +178,28 @@
  ===            present               ===
  ***===================================*/
 +(void)alertWithTitle:(NSString *)title
+              message:(NSString *)msg
+          cancelTitle:(NSString *)CT
+            inViewCtl:(UIViewController*)viewCtl
+{
+    [self alertWithTitle:title message:msg cancelT:CT destructiveT:nil destructiveAct:nil title_1:nil act_1:nil title_2:nil act_2:nil title_3:nil act_3:nil inViewCtl:viewCtl];
+}
++(void)alertWithTitle:(NSString *)title
+              message:(NSString *)msg
+          cancelTitle:(NSString *)CT
+         destructiveT:(NSString*)DT
+       destructiveAct:(void(^)(UIAlertAction * action))DAct
+            inViewCtl:(UIViewController*)viewCtl
+{
+    [self alertWithTitle:title message:msg cancelT:CT destructiveT:DT destructiveAct:DAct title_1:nil act_1:nil title_2:nil act_2:nil title_3:nil act_3:nil inViewCtl:viewCtl];
+}
++(void)alertWithTitle:(NSString *)title
+              message:(NSString *)msg
                cancelTitle:(NSString *)CT
-              destructiveT:(NSString*)DT
-            destructiveAct:(void(^)(UIAlertAction * action))DAct
                    title_1:(NSString*)title_1
                      act_1:(void(^)(UIAlertAction * action))act_1
                  inViewCtl:(UIViewController*)viewCtl{
-    [self alertWithTitle:title message:nil cancelT:CT destructiveT:DT destructiveAct:DAct title_1:nil act_1:nil title_2:nil act_2:nil title_3:nil act_3:nil inViewCtl:viewCtl];
+    [self alertWithTitle:title message:msg cancelT:CT destructiveT:nil destructiveAct:nil title_1:title_1 act_1:act_1 title_2:nil act_2:nil title_3:nil act_3:nil inViewCtl:viewCtl];
 }
 
 
@@ -269,11 +284,11 @@
     }
     
     if (title_2) {
-        [alertVC addAction:[UIAlertAction actionWithTitle:title_1 style:UIAlertActionStyleDefault handler:act_2]];
+        [alertVC addAction:[UIAlertAction actionWithTitle:title_2 style:UIAlertActionStyleDefault handler:act_2]];
     }
     
     if (title_3) {
-        [alertVC addAction:[UIAlertAction actionWithTitle:title_1 style:UIAlertActionStyleDefault handler:act_3]];
+        [alertVC addAction:[UIAlertAction actionWithTitle:title_3 style:UIAlertActionStyleDefault handler:act_3]];
     }
     
     return  alertVC;

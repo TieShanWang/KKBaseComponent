@@ -138,10 +138,24 @@
 /***=====================================
  ===            present               ===
  ***===================================*/
+
+/// 定制取消
 +(void)alertWithTitle:(NSString *)title
+              message:(NSString *)msg
+          cancelTitle:(NSString *)CT
+            inViewCtl:(UIViewController*)viewCtl;
+/// 定制取消、关键
++(void)alertWithTitle:(NSString *)title
+              message:(NSString *)msg
           cancelTitle:(NSString *)CT
          destructiveT:(NSString*)DT
        destructiveAct:(void(^)(UIAlertAction * action))DAct
+            inViewCtl:(UIViewController*)viewCtl;
+
+/// 定制取消、title1
++(void)alertWithTitle:(NSString *)title
+              message:(NSString *)msg
+          cancelTitle:(NSString *)CT
               title_1:(NSString*)title_1
                 act_1:(void(^)(UIAlertAction * action))act_1
             inViewCtl:(UIViewController*)viewCtl;
