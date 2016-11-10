@@ -42,9 +42,9 @@
         return nil;
     hexString = [hexString stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"#"]];
     if (hexString.length == 3) {
-        hexString = [NSString stringWithFormat:@"%@%@%@%@%@%@", [hexString characterStrAtIndex:0], [hexString characterStrAtIndex:0],
-                     [hexString characterStrAtIndex:1], [hexString characterStrAtIndex:1],
-                     [hexString characterStrAtIndex:2], [hexString characterStrAtIndex:2]];
+        hexString = [NSString stringWithFormat:@"%@%@%@%@%@%@", [hexString kk_characterStrAtIndex:0], [hexString kk_characterStrAtIndex:0],
+                     [hexString kk_characterStrAtIndex:1], [hexString kk_characterStrAtIndex:1],
+                     [hexString kk_characterStrAtIndex:2], [hexString kk_characterStrAtIndex:2]];
     }
     unsigned int rgbValue = 0;
     NSScanner *scanner = [NSScanner scannerWithString:hexString];

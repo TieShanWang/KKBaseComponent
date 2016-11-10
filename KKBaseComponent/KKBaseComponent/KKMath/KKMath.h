@@ -100,7 +100,7 @@ CGPoint KKPointRelatePoint(CGPoint baseP, CGPoint relativeP);
  *  To get a matrix of SVG format
  *
  *  @param frame            the origin frame
- *  @param currentTransform the transform
+ *  @param transform the transform
  *
  *  @return CGAffineTransform
  */

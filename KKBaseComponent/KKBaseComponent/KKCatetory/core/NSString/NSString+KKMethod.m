@@ -10,7 +10,35 @@
 
 @implementation NSString (KKTool)
 
-+ (NSString *)hexStringFromColor:(UIColor *)color {
+BOOL KKCStrNilNull(NSString * toBeChecked)
+{
+    return !toBeChecked || [toBeChecked isKindOfClass:[NSNull class]];
+}
+
+BOOL KKCStrNilNullLenZero(NSString * toBeChecked)
+{
+    return KKCStrLenZero(toBeChecked);
+}
+
+BOOL KKCStrLenZero(NSString * toBeChecked)
+{
+    return KKCStrNilNull(toBeChecked) || (toBeChecked.length == 0);
+}
+
++ (BOOL)kk_NilNull:(NSString *)toBeChecked
+{
+    return KKCStrNilNull(toBeChecked);
+}
++ (BOOL)kk_NilNullLenZero:(NSString *)toBeChecked
+{
+    return KKCStrLenZero(toBeChecked);
+}
++ (BOOL)kk_LenZero:(NSString *)toBeChecked
+{
+    return KKCStrLenZero(toBeChecked);
+}
+
++ (NSString *)kk_hexStringFromColor:(UIColor *)color {
     if (!color) {
         return nil;
     }
@@ -31,7 +59,7 @@
             (int)((CGColorGetComponents(color.CGColor))[2]*255.0)];
 }
 
-+ (NSString *)stringWithUUID
++ (NSString *)kk_stringWithUUID
 {
     CFUUIDRef uuidObj = CFUUIDCreate(nil);//create a new UUID
     
@@ -62,15 +90,7 @@ BOOL kkContainStr(NSString * str ,NSString * beCheck, NSStringCompareOptions opt
     return YES;
 }
 
--(BOOL)isKk_Empty{
-    return self.isKk_lenZero;
-}
-
--(BOOL)isKk_lenZero{
-    return  ([self length] == 0);
-}
-
--(NSString *)characterStrAtIndex:(NSUInteger)index{
+-(NSString *)kk_characterStrAtIndex:(NSUInteger)index{
     return (self.length > index) ? [NSString stringWithFormat:@"%C", [self characterAtIndex:index]] : nil;
 }
 
@@ -87,7 +107,7 @@ BOOL kkContainStr(NSString * str ,NSString * beCheck, NSStringCompareOptions opt
 - (CGSize)kk_heightWithWidth:(CGFloat)textWidth
                   fontSize:(CGFloat)fontSize{
     
-    if ([self isKk_Empty]) {
+    if (KKCStrNilNullLenZero(self)) {
         return CGSizeZero;
     }
 
@@ -107,7 +127,7 @@ BOOL kkContainStr(NSString * str ,NSString * beCheck, NSStringCompareOptions opt
                    fontSize:(CGFloat)fontSize
                lineSpacing:(double)lineSpace{
     
-    if ([self isKk_Empty]) {
+    if (KKCStrNilNullLenZero(self)) {
         return CGSizeZero;
     }
     

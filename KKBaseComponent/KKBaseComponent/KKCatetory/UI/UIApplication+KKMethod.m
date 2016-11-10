@@ -16,7 +16,7 @@
 
 
 +(BOOL)openSystemWebBrowserWithURL:(NSString *)URL{
-    if (!URL || ([URL isKk_Empty])) {
+    if (KKCStrNilNullLenZero(URL)) {
         return NO;
     }
     NSURL * url = [NSURL URLWithString:URL];

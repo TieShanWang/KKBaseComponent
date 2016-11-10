@@ -22,15 +22,15 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return Color string
  */
-+ (NSString *)hexStringFromColor:(UIColor *)color;
++ (NSString *)kk_hexStringFromColor:(UIColor *)color;
 
 ///获取随机的UUID
-+ (NSString *)stringWithUUID;
++ (NSString *)kk_stringWithUUID;
 
 /**
  *  get string from special index / 获取指定位置的字符串
  */
--(NSString *)characterStrAtIndex:(NSUInteger)index;
+-(NSString *)kk_characterStrAtIndex:(NSUInteger)index;
 
 /**
  *  去掉空格
@@ -40,7 +40,6 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  是否包含字符串，区分大小写
  */
-
 -(BOOL)kk_ctStrStrit:(NSString *)otherS;
 
 /**
@@ -49,14 +48,21 @@ NS_ASSUME_NONNULL_BEGIN
 -(BOOL)kk_ctStr:(NSString *)str;
 
 /**
- *  字符串长度为0
+ *  check string nil/null/length zero
+ *
+ *  @param toBeChecked string which to be checked
+ *
+ *  @return valid
  */
-@property(nonatomic,assign,readonly,getter=isKk_lenZero)BOOL  kk_lenZero;
++ (BOOL)kk_NilNull:(NSString *)toBeChecked;
++ (BOOL)kk_NilNullLenZero:(NSString *)toBeChecked;
++ (BOOL)kk_LenZero:(NSString *)toBeChecked;
 
-/**
- *  为空
- */
-@property(nonatomic,assign,readonly,getter=isKk_Empty)BOOL kk_Empty;
+BOOL KKCStrNilNull(NSString * toBeChecked);
+
+BOOL KKCStrNilNullLenZero(NSString * toBeChecked);
+
+BOOL KKCStrLenZero(NSString * toBeChecked);
 
 @end
 

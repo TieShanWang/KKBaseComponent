@@ -14,11 +14,11 @@
 
 -(BOOL)isKk_ValidURL{
     NSRange range = [self rangeOfString:@"http" options:NSCaseInsensitiveSearch];
-    return ([self isKk_Empty] || (range.location == NSNotFound));
+    return (KKCStrNilNullLenZero(self) || (range.location == NSNotFound));
 }
 
 -(BOOL)isKk_ValidEmail{
-    if ([self isKk_Empty]) {
+    if (KKCStrNilNullLenZero(self)) {
         return NO;
     }
     NSString *pattern = @"^\\w+([-_.]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,6})+$";
@@ -27,7 +27,7 @@
 }
 
 -(BOOL)isKk_ValidTelNum{
-    if ([self isKk_Empty]) {
+    if (KKCStrNilNullLenZero(self)) {
         return NO;
     }
     NSString * pattern = @"^[1][3,4,5,7,8][0-9]{9}$";
@@ -37,7 +37,7 @@
 }
 
 -(BOOL)isKk_ValidMobilPNum{
-    if ([self isKk_Empty]) {
+    if (KKCStrNilNullLenZero(self)) {
         return NO;
     }
     NSString * pattern = @"^[1][3,4,5,7,8][0-9]{9}$";
@@ -47,7 +47,7 @@
 }
 
 -(BOOL)isKk_ValidBankNum{
-    if ([self isKk_Empty]) {
+    if (KKCStrNilNullLenZero(self)) {
         return NO;
     }
     NSString *pattern = @"^([0-9]{16,19})$";
@@ -57,7 +57,7 @@
 }
 
 -(BOOL)isKk_ValidPsw{
-    if ([self isKk_Empty]) {
+    if (KKCStrNilNullLenZero(self)) {
         return NO;
     }
     NSString *pattern = @"^[0-9]{6,14}$";
@@ -67,7 +67,7 @@
 }
 
 -(BOOL)isKk_validIDNum{
-    if ([self isKk_Empty]) {
+    if (KKCStrNilNullLenZero(self)) {
         return NO;
     }
     NSString *pattern = @"^(\\d{14}|\\d{18})(\\d|[xX])$";
